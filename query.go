@@ -46,9 +46,9 @@ func (c *collection) RunGetQuery(_ context.Context, q *driver.Query) (driver.Doc
 	}
 
 	// Apply offset
-	// if q.Offset > 0 && len(resultDocs) > q.Offset {
-	// 	resultDocs = resultDocs[q.Offset:]
-	// }
+	if q.Offset > 0 && len(resultDocs) > q.Offset {
+		resultDocs = resultDocs[q.Offset:]
+	}
 
 	// Apply limit
 	if q.Limit > 0 && len(resultDocs) > q.Limit {
